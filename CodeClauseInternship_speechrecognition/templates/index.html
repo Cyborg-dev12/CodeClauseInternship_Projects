@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speech Transcription</title>
+</head>
+<body>
+    <h1>Choose an option for Speech Transcription</h1>
+    <form action="/record" method="post">
+        <button type="submit">Record Live Speech</button>
+    </form>
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <label for="file">Upload Audio File (.wav/.mp3):</label>
+        <input type="file" name="file" accept=".wav,.mp3" required>
+        <button type="submit">Upload</button>
+    </form>
+</body>
+</html>

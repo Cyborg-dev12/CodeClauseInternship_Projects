@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personality Prediction from CV</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header text-center">
+                        <h2>Upload Your CV/Resume</h2>
+                    </div>
+                    <div class="card-body">
+                        <form method="POST" action="/upload" enctype="multipart/form-data">
+                            <div class="form-group">
+                                <label for="file">Select CV (PDF or DOCX)</label>
+                                <input type="file" class="form-control" id="file" name="file" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block">Upload & Predict</button>
+                        </form>
+                    </div>
+                </div>
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        <div class="alert alert-danger mt-3">{{ messages[0] }}</div>
+                    {% endif %}
+                {% endwith %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
